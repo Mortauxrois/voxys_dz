@@ -9,7 +9,7 @@ export function getOutTime(time: TTime, schedule: TTime[], walkTimeInMinutes = W
     const timeAfterWalk = addMinutes(time, walkTimeInMinutes);
 
     const timeAfterWalkNumber = timeAfterWalk.h * 100 + timeAfterWalk.m;
-    const timeNumbers =  schedule.map(el => el.h * 100 + el.m);
+    const timeNumbers =  schedule.map(el => (el.h !== 0 ? el.h : 24) * 100 + el.m);
     let nearestBusTime = {h: 6, m: 0};
     
     for (let i = 1; i < timeNumbers.length; i++) {
@@ -35,7 +35,7 @@ export function scheduleFactory() {
     const WORK_MINUTES_IN_DAY = (24 - 6) * 60;
     let time = {h: 6, m: 0};
     const schedule = [];
-    for (let i = 0; i < WORK_MINUTES_IN_DAY / STEP_IN_MINUTES; i++) {
+    for (let i = 0; i < WORK_MINUTES_IN_DAY / STEP_IN_MINUTES + 1; i++) {
         schedule.push({...time});
         time = addMinutes(time, STEP_IN_MINUTES);
     }
