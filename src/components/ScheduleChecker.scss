@@ -1,0 +1,47 @@
+
+.wrapper{
+    margin: 5px;
+    &__resultLabel{
+        margin: 0px 0px 10px;
+    }
+
+    &__resultField{
+        margin: 0;
+        padding: 5px;
+        text-align: center;
+        border-radius: 5px;
+        background-color: rgb(251, 173, 96);
+    }
+}
+
+.inputWrapper{
+    width: 100%;
+    position: relative;
+    margin-bottom: 80px;
+    &__label{
+        margin: 0px 0px 10px;
+    }
+    &__input{
+        margin: 0;
+        width: 100%;
+        text-align: center;
+        font-size: 1rem;
+        border-radius: 5px;
+        border: solid 2px;
+        border-color: black;
+        &_invalid{
+            border-color: red;
+        }
+    }
+    &__errorMsg{
+        position: absolute;
+        bottom: -25px;
+        width: 100%;
+        margin: 0;
+        color: red;
+        text-align: center;
+        font-style: italic;
+        font-size: 0.7rem;
+    }
+}
+
