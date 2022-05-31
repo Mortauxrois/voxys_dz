@@ -10,7 +10,7 @@ export function getOutTime(time: TTime, schedule: TTime[], walkTimeInMinutes = W
 
     const timeAfterWalkNumber = timeAfterWalk.h * 100 + timeAfterWalk.m;
     const timeNumbers =  schedule.map(el => el.h * 100 + el.m);
-    let nearestBusTime = {h: 0, m: 0};
+    let nearestBusTime = {h: 6, m: 0};
     
     for (let i = 1; i < timeNumbers.length; i++) {
         if (timeNumbers[i - 1] < timeAfterWalkNumber && timeAfterWalkNumber <= timeNumbers[i]) {
@@ -32,10 +32,10 @@ export function stringToTime(str: string): TTime {
 
 export function scheduleFactory() {
     const STEP_IN_MINUTES = 15;
-    const MINUTES_IN_DAY = 1440;
-    let time = {h: 0, m: 0};
+    const WORK_MINUTES_IN_DAY = (24 - 6) * 60;
+    let time = {h: 6, m: 0};
     const schedule = [];
-    for (let i = 0; i < MINUTES_IN_DAY / STEP_IN_MINUTES; i++) {
+    for (let i = 0; i < WORK_MINUTES_IN_DAY / STEP_IN_MINUTES; i++) {
         schedule.push({...time});
         time = addMinutes(time, STEP_IN_MINUTES);
     }
