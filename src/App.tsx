@@ -1,12 +1,17 @@
-import React from 'react';
-import './App.css';
+import { scheduleFactory } from './timeCore/timeCore';
+import ScheduleChecker from './components/ScheduleChecker';
+import './App.scss';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
 
+  return (
+    <div className='root'>
+      <header>
+        <h1>Расчет времени выхода</h1>
       </header>
+      <main>
+        <ScheduleChecker schedule={scheduleFactory()}/>
+      </main>
     </div>
   );
 }
