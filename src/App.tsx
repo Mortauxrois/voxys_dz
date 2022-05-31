@@ -3,7 +3,6 @@ import ScheduleChecker from './components/ScheduleChecker';
 import './App.scss';
 
 function App() {
-  console.log(scheduleFactory())
   return (
     <div className='root'>
       <header>
